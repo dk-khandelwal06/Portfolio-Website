@@ -43,10 +43,10 @@ This website helps me:
 
 ---
 
-## 🖼️ Preview Screenshot *(Optional)*
+## 🧠 Credits
 
-```markdown
-![Website Preview](./screenshot.png)
+This website is part of my learning journey in web development, built as a self-initiated project using Cursor.ai. 
+I plan to update it regularly as I grow in the AI & Data Science field.
 
 ---
 
