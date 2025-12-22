@@ -7,6 +7,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const navMenu = document.querySelector(".nav__menu");
     const yearSpan = document.getElementById("year");
     const contactForm = document.getElementById("contact-form");
+    const themeToggle = document.getElementById("theme-toggle");
+    const bodyEl = document.body;
+
+    /* Theme handling */
+    const applyTheme = (mode) => {
+      const isLight = mode === "light";
+      bodyEl.classList.toggle("light-theme", isLight);
+      if (themeToggle) {
+        themeToggle.textContent = isLight ? "☀️" : "🌙";
+        themeToggle.setAttribute("aria-label", isLight ? "Switch to dark mode" : "Switch to light mode");
+      }
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+    };
+
+    const savedTheme = localStorage.getItem("theme");
+    applyTheme(savedTheme === "light" ? "light" : "dark");
+
+    if (themeToggle) {
+      themeToggle.addEventListener("click", () => {
+        const nextTheme = bodyEl.classList.contains("light-theme") ? "dark" : "light";
+        applyTheme(nextTheme);
+      });
+    }
   
     /* Current year in footer */
     if (yearSpan) {
