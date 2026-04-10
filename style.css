@@ -450,6 +450,11 @@ body.light-theme {
   .section__header {
     text-align: left;
     margin-bottom: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem 1rem;
   }
   
   .section__title {
@@ -461,6 +466,7 @@ body.light-theme {
     margin: 0;
     font-size: 0.96rem;
     color: var(--color-text-soft);
+    flex-basis: 100%;
   }
   
   /* Cards */
@@ -653,6 +659,19 @@ body.light-theme {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.7rem;
+  }
+  
+  .project-card.hidden {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .project-card.show {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
   }
   
   .project-card {

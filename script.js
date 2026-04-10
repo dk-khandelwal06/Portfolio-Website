@@ -94,6 +94,34 @@ document.addEventListener("DOMContentLoaded", () => {
   
     revealElements.forEach((el) => revealObserver.observe(el));
   
+    /* Projects view all toggle */
+    const viewAllBtn = document.getElementById("view-all-btn");
+    const hiddenProjects = document.querySelectorAll(".project-card.hidden");
+    
+    if (viewAllBtn && hiddenProjects.length > 0) {
+      let isExpanded = false;
+      
+      viewAllBtn.addEventListener("click", () => {
+        isExpanded = !isExpanded;
+        
+        if (isExpanded) {
+          viewAllBtn.textContent = "Show Less";
+          hiddenProjects.forEach((project, index) => {
+            setTimeout(() => {
+              project.classList.remove("hidden");
+              project.classList.add("show");
+            }, index * 100); // Stagger animation
+          });
+        } else {
+          viewAllBtn.textContent = "View All";
+          hiddenProjects.forEach((project) => {
+            project.classList.remove("show");
+            project.classList.add("hidden");
+          });
+        }
+      });
+    }
+  
     /* Contact form validation (front-end only) */
     if (contactForm) {
       contactForm.addEventListener("submit", (event) => {
